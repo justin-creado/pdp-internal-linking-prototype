@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDP Prototype - Aramya Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for authentic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- PapaParse -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<div class="layout-wrapper">
+    <!-- Left Side: Control Panel (Dev Tools) -->
+    <aside class="dev-panel">
+        <div class="panel-header">
+            <h2>Prototype Controls</h2>
+            <p>Configure the simulation below</p>
+        </div>
+
+        <div class="control-group">
+            <label for="csvFile">1. Upload Mapping CSV</label>
+            <input type="file" id="csvFile" accept=".csv">
+            <div id="csvStatus" class="status-badge">No CSV loaded</div>
+        </div>
+
+        <div class="control-group">
+            <label for="pdpInput">2. Simulate PDP Title</label>
+            <textarea id="pdpInput" rows="3">Cotton Voile Solid Purple Dupatta</textarea>
+            <button id="runBtn">Update Preview</button>
+        </div>
+
+        <div class="control-group">
+            <label>Debug Output</label>
+            <textarea id="debugOut" readonly></textarea>
+            <div class="btn-row">
+                <button id="exportHtml" disabled>Export HTML</button>
+                <button id="exportJson" disabled>Export JSON</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Right Side: Mobile Preview -->
+    <main class="preview-stage">
+        <div class="mobile-frame">
+            <!-- Top Promo Bar -->
+            <div class="promo-bar">
+                FREE POUCH ON FIRST ORDER ABOVE ₹999
+            </div>
+
+            <!-- App Bar -->
+            <nav class="app-bar">
+                <div class="left-icons">
+                    <span class="material-icons">arrow_back</span>
+                    <span class="material-icons">search</span>
+                </div>
+                <div class="logo">ARAMYA</div>
+                <div class="right-icons">
+                    <span class="material-icons">favorite_border</span>
+                    <span class="material-icons">shopping_bag</span>
+                </div>
+            </nav>
+
+            <!-- Product Image Area (Static Placeholder) -->
+            <div class="product-image-area">
+                <div class="img-placeholder">
+                    <span class="material-icons" style="font-size: 48px; color: #ddd;">image</span>
+                </div>
+                <div class="image-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="rating-badge">
+                    <span class="material-icons star">star</span> 4.7 (1.7K)
+                </div>
+                <div class="nav-arrow left"><span class="material-icons">chevron_left</span></div>
+                <div class="nav-arrow right"><span class="material-icons">chevron_right</span></div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <div class="brand-row">
+                    <span class="brand-name">Aramya</span>
+                    <div class="action-icons">
+                        <span class="material-icons">favorite_border</span>
+                        <span class="material-icons">share</span>
+                    </div>
+                </div>
+                
+                <!-- Dynamic Title -->
+                <h1 id="pdpTitle" class="product-title">Cotton Voile Solid Purple Dupatta</h1>
+
+                <div class="category-tag">Dupatta</div>
+
+                <div class="price-row">
+                    <span class="current-price">₹249</span>
+                    <span class="original-price">₹499</span>
+                    <span class="discount">-50%</span>
+                </div>
+                <div class="tax-note">Prices inclusive of all taxes</div>
+            </div>
+
+            <!-- Offer Banner -->
+            <div class="offer-banner">
+                <div class="offer-icon">%</div>
+                <div class="offer-text">
+                    <strong>FREE Travel Pouch</strong> on first order<br>
+                    <span class="sub-text">Coupon <strong>ARAMYAPOUCH</strong> | Above ₹999</span>
+                </div>
+            </div>
+
+            <!-- Ratings Section -->
+            <div class="section ratings-section">
+                <div class="section-header-center">
+                    <span class="decoration">🌿</span> Ratings & Reviews <span class="decoration">🌿</span>
+                </div>
+                <div class="rating-circle">
+                    <div class="score">4.7</div>
+                </div>
+                <div class="rating-summary">
+                    1.7K Ratings | 3 Reviews <span class="material-icons">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Customer Photos -->
+            <div class="section customer-photos">
+                <h3>Customer Photos</h3>
+                <div class="photo-grid">
+                    <div class="photo-thumb" style="background-color: #d63384;"></div>
+                    <div class="photo-thumb" style="background-color: #c2185b;"></div>
+                    <div class="photo-thumb" style="background-color: #ad1457;"></div>
+                    <div class="photo-thumb" style="background-color: #880e4f;"></div>
+                </div>
+            </div>
+
+            <!-- RELATED COLLECTIONS (Target Feature) -->
+            <div id="relatedContainer" class="section related-collections" style="display: none;">
+                <h3>Related Collections You'll Love</h3>
+                <div id="related" class="related-pills-scroll">
+                    <!-- Links injected here -->
+                </div>
+            </div>
+
+            <!-- Bottom Spacer -->
+            <div style="height: 50px;"></div>
+        </div>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
